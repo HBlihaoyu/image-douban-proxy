@@ -92,6 +92,9 @@ export default async function onRequest(context) {
   let fullPath =
     query.get("url") || url.pathname.substring(1)
 
+  // 地址栏参数解码
+  fullPath = decodeURIComponent(fullPath)
+
   // 如果路径为空，则返回错误
   if (!fullPath) {
     return new Response(
