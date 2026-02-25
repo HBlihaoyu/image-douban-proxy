@@ -60,7 +60,7 @@ export default async function onRequest(context) {
     // 必须有 Referer 或 Origin,否则拒绝
     if (!referer && !origin) {
       return true
-    } 
+    }
 
     try {
       const sourceHost = new URL(referer || origin).hostname
@@ -127,12 +127,12 @@ export default async function onRequest(context) {
   const remainingPath = pathParts.slice(1).join("/")
 
   // 验证主机名是否为 doubanio.com 的子域名
-  if (!hostname.endsWith("doubanio.com")) {
-    return new Response(
-      "Only doubanio.com domains allowed",
-      { status: 403 },
-    )
-  }
+  // if (!hostname.endsWith("doubanio.com")) {
+  //   return new Response(
+  //     "Only doubanio.com domains allowed",
+  //     { status: 403 },
+  //   )
+  // }
 
   // 构造目标URL，保留原始子域名
   const targetUrl = `https://${hostname}/${remainingPath}`
