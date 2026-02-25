@@ -59,8 +59,8 @@ export default async function onRequest(context) {
 
     // 必须有 Referer 或 Origin,否则拒绝
     if (!referer && !origin) {
-      return false
-    }
+      return true
+    } 
 
     try {
       const sourceHost = new URL(referer || origin).hostname
